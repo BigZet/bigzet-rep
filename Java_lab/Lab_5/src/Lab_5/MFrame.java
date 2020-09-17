@@ -29,7 +29,7 @@ Random_creator creators = new Random_creator(new Shape_creator[]{new Circle_crea
         for (int i = 0; i<20; i++){
             Shape sh = creators.create();
             if (sh.typeS==1){
-                double side = (Square)sh.side;
+                double side = (Square)sh.side();
             }
         }
     }
