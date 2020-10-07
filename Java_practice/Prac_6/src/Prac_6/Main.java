@@ -91,8 +91,11 @@ public class Main {
         Comparable<Student>[] sorted = mergeSort(Group_1, Group_2);
 
         System.out.println(  sorted.length);
-        for(int i =0; i<sorted.length-3; i++){
-            System.out.println(((Student)sorted[i]).id);
+        for(int i =4; i<sorted.length-1; i++){
+            if ((Student)sorted[i] != null){
+                System.out.println(((Student)sorted[i]).id);
+            }
+
         }
 
     }
