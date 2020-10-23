@@ -2,23 +2,30 @@ package Lab_16;
 
 public final class Drink extends MenuItem implements Alcoholable{
 
-    Drink(String name, String description){
-        super(name, description, 0);
+    private DrinkTypeEnum type;
+    private double AlcoholVol;
+
+    Drink(DrinkTypeEnum type, String description){
+        super(type.getName(), description, 0);
+        this.type=type;
+        this.AlcoholVol=type.getAlcoholVol();
     }
 
-    Drink(int cost, String name, String description){
-        super(name, description, cost);
+    Drink(DrinkTypeEnum type,  String description, int cost){
+        super(type.getName(), description, cost);
+        this.type=type;
+        this.AlcoholVol=type.getAlcoholVol();
     }
 
 
 
     @Override
     public boolean isAlcoholicDrink() {
-        return false;
+        return AlcoholVol>0.5 ? true : false;
     }
 
     @Override
     public double getAlcoholVol() {
-        return 0;
+        return AlcoholVol;
     }
 }

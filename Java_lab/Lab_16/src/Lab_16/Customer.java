@@ -17,12 +17,19 @@ public final class Customer {
         return address;
     }
 
+    Customer(String firstName, String secondName, int age, Address address){
+        this.firstName=firstName;
+        this.secondName=secondName;
+        this.age=age;
+        this.address=address;
+    }
+
     private String firstName;
     private String secondName;
     private int age;
     private Address address;
-    private static Customer MATURE_UNKNOWN_CUSTOMER;
-    private static Customer NOT_MATURE_UNKNOWN_CUSTOMER;
+    private static Customer MATURE_UNKNOWN_CUSTOMER = new Customer(null, null, 18, null);
+    private static Customer NOT_MATURE_UNKNOWN_CUSTOMER = new Customer(null, null, 17, null);
 
 
 }

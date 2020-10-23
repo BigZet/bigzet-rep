@@ -6,7 +6,7 @@ public final class Dish extends MenuItem{
         super(name, description, 0);
     }
 
-    public Dish(int cost, String name, String description){
+    public Dish(String name, String description, int cost ){
         super(name, description, cost);
     }
 }

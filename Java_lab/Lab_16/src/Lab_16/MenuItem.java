@@ -6,6 +6,9 @@ public class MenuItem {
     private String description;
 
     public MenuItem (String name, String description, int cost){
+        if ((cost<0) || (name=="") || (description=="") || (description==null) || (name==null)){
+            throw new java.lang.IllegalArgumentException();
+        }
         this.cost=cost;
         this.description=description;
         this.name=name;
