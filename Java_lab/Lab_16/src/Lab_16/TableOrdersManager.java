@@ -16,7 +16,7 @@ public class TableOrdersManager implements OrdersManager {
         }
     }
 
-    private Order[] orders = new Order[5];
+    private Order[] orders = new Order[8];
     @Override
     public int itemsQuantity(String itemName) {
         int c = 0;
@@ -150,12 +150,12 @@ public class TableOrdersManager implements OrdersManager {
         }
         String orderItems = "\nOrder items: ";
         for (MenuItem i: getOrder(t_num).getItems()) {
-            orderItems+="\n\t"+i.getName()+"   "+i.getDescription()+"   "+i.getCost();
+            orderItems+="\n"+i.getName()+"   "+i.getDescription()+"   "+i.getCost();
         }
 
         String allInfo = String.format("Orders: %d, Sum: %d\n", ordersQuantity(), ordersCostSummary());
 
-        String orderResult = String.format("\n____________________________________________________________________________\nItems: %d \tSummary: %d", getOrder(t_num).itemsQuantity(), getOrder(t_num).costTotal());
+        String orderResult = String.format("\n\nItems: %d \tSummary: %d", getOrder(t_num).itemsQuantity(), getOrder(t_num).costTotal());
         return allInfo+customer+orderItems+orderResult;
     }
 }

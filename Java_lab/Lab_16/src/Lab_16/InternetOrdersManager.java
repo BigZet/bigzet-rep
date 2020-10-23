@@ -95,4 +95,36 @@ public class InternetOrdersManager implements OrdersManager {
         return tail.item;
     }
 
+    public String[] getNames(){
+        String[] names = new String[getOrders().length];
+        int c = 0;
+        for (QueueNode i = head; i !=null; i=i.next) {
+            names[c]=i.item.getCustomer().getFirstName()+" "+i.item.getCustomer().getSecondName();
+            c++;
+        }
+        return names;
+    }
+
+    public String to_String(int i_num){
+        int c = 0;
+        QueueNode i = head;
+        String text;
+        while(c<i_num && i!=null){
+            i=i.next;
+            c++;
+        }
+        String PI = String.format("First name: %s\nSecond name: %s\nAge: %s\n", i.item.getCustomer().getFirstName(), i.item.getCustomer().getSecondName(), i.item.getCustomer().getAge());
+        Address cadr = i.item.getCustomer().getAddress();
+        String Adr = String.format("%s, st.%s, b.%d, f.%d\n", cadr.getCityName(), cadr.getStreetName(), cadr.getBuildingNumber(), cadr.getApartmentNumber());
+        String OrdersInfo = "Order:";
+        MenuItem[] items = i.item.getItems();
+        for (MenuItem k : items) {
+            OrdersInfo+="\n"+k.getName()+"   "+k.getDescription()+"   "+k.getCost();
+        }
+
+        String allInfo = String.format("Orders: %d, Sum: %d\n", ordersQuantity(), ordersCostSummary());
+        String orderResult = String.format("\n\nItems: %d \tSummary: %d", i.item.itemsQuantity(),  i.item.costTotal());
+        return allInfo+PI+Adr+OrdersInfo+orderResult;
+    }
+
 }
