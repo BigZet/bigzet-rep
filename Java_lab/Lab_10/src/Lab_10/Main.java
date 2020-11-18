@@ -15,8 +15,9 @@ public class Main {
         AnyArray anyArray = new AnyArray();
         anyArray.add("New");
         anyArray.add(10);
-        CatalogList CL = new CatalogList("/home/bigzet/Downloads");
+        CatalogList CL = new CatalogList("..");
         System.out.println(CL.to_String());
-        System.out.println(CL.get(1));
+        //System.out.println(CL.get(1));
+        ArrayList<Integer> tst = Solution.newArrayList (new Integer(10), new Integer(20));
     }
 }
