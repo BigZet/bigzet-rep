@@ -89,9 +89,9 @@ cat("Количество элементов матрицы(", length(surface_ma
               )
 
 #slices_2
-step <- readLines()               # Шаг сетки
-dekart_begin <- readLines()     # Начало сетки
-dekart_end <- readLines()         # Конец сетки
+step <- as.numeric(readline())               # Шаг сетки
+dekart_begin <- as.numeric(readline())     # Начало сетки
+dekart_end <- as.numeric(readline())         # Конец сетки
 
 
 # Задание сеточной поверхности
@@ -159,6 +159,7 @@ cars_dist_lm = a_c + cars_speed_lm * a_x
 dist_residuals = cars_dist_lm - cars_dist
 dred_mn = mean(dist_residuals)
 dred_sd = sd(dist_residuals)
-plot(cars_dist_lm)
+plot(cars)
+lines(x = cars_speed_lm, y = cars_dist_lm)
 print(paste("dist_res_mean:", dred_mn, "dist_res_sd:", dred_sd))
 
